@@ -10,3 +10,4 @@ bs4
 faiss-cpu
 langchain-cohere
 PyPDF2
+langchain-google-genai
