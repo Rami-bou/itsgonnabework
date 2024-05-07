@@ -14,17 +14,18 @@ from langchain_cohere import CohereEmbeddings
 from langchain_cohere import CohereEmbeddings
 from bs4 import BeautifulSoup
 from langchain.text_splitter import CharacterTextSplitter
-
+from langchain_google_genai import GoogleGenerativeAI
 
 
 load_dotenv()
 
 # llm = GoogleGenerativeAI(model="models/text-bison-001")
 # llm = ChatCohere()
-llm = OpenAI()
+# llm = OpenAI()
+llm = GoogleGenerativeAI(model="gemini-pro")
 
-arabic = r"banque_AR.pdf"
-french = r"Banque_FR.pdf"
+arabic = r"D:\\E12_Bot\\banque_AR.pdf"
+french = r"D:\\E12_Bot\\Banque_FR.pdf"
 
 # put all the urls of our website to scrape it
 urls = [
@@ -61,8 +62,8 @@ def get_text_chunks(text):
     return chunks
 
 def vectorstore(chunks):
-    embeddings = OpenAIEmbeddings()
-    # embeddings = CohereEmbeddings(model="embed-english-light-v3.0")
+    # embeddings = OpenAIEmbeddings()
+    embeddings = CohereEmbeddings()
     vectorstore = FAISS.from_texts(texts=chunks, embedding=embeddings)
 
     return vectorstore
