@@ -24,8 +24,8 @@ load_dotenv()
 # llm = OpenAI()
 llm = GoogleGenerativeAI(model="gemini-pro")
 
-arabic = r"D:\\E12_Bot\\banque_AR.pdf"
-french = r"D:\\E12_Bot\\Banque_FR.pdf"
+arabic = r"banque_AR.pdf"
+french = r"Banque_FR.pdf"
 
 # put all the urls of our website to scrape it
 urls = [
